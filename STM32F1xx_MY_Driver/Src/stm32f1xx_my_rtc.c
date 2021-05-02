@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    stm32f1xx_HAL_rtc.c
-  * @author  AliMoallem
-  * @brief   Source file of RTC HAL module.
+  * @file    stm32f1xx_my_rtc.c
+  * @author  AliMoallem (https://github.com/alimoal)
+  * @brief   Source file of RTC MY module.
   ******************************************************************************
   
 ==============================================================================
@@ -390,13 +390,13 @@ HAL_StatusTypeDef MY_RTC_SetDate(RTC_HandleTypeDef *hrtc, RTC_DateTypeDef *sDate
 HAL_StatusTypeDef MY_RTC_GetDate(RTC_HandleTypeDef *hrtc, RTC_DateTypeDef *sDate, uint32_t Format)
 {
 	unsigned int temp1 = 0, temp2 = 0;
-	static unsigned int day_count;
+//	static unsigned int day_count;
 	unsigned long temp = 0;
   uint32_t counts = 0U;
 	counts = RTC_ReadTimeCounter(hrtc);
-  temp = (counts / 86400);
-	if(day_count != temp)
-  {
+//  temp = (counts / 86400);
+//	if(day_count != temp)
+//  {
     day_count = temp;
     temp1 = 1970;
     while(temp >= 365)
@@ -451,6 +451,6 @@ HAL_StatusTypeDef MY_RTC_GetDate(RTC_HandleTypeDef *hrtc, RTC_DateTypeDef *sDate
 		sDate->Month = (uint8_t)(temp1 + 1);
 		sDate->Date = (uint8_t)(temp + 1);
 		sDate->WeekDay = RTC_WeekDayNum(sDate->Year, sDate->Month, sDate->Date);
-  }
+//  }
   return HAL_OK;
 }

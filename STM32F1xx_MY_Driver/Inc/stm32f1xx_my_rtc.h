@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f1xx_my_rtc.h
-  * @author  AliMoallem
+  * @author  AliMoallem (https://github.com/alimoal)
   * @brief   Header file of RTC MY module.
   ******************************************************************************
   */
